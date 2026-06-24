@@ -32,6 +32,49 @@ const results = [
   }
 ];
 
+const observations = [
+  {
+    id: "OBSERVATION 4831",
+    location: "Sydney, Australia",
+    copy: "Family conflict frequency reduced 17%."
+  },
+  {
+    id: "OBSERVATION 5127",
+    location: "Toronto, Canada",
+    copy: "Reported emotional variance declining."
+  },
+  {
+    id: "OBSERVATION 6201",
+    location: "Chicago, USA",
+    copy: "Public compliance increasing."
+  },
+  {
+    id: "OBSERVATION 7310",
+    location: "Location withheld",
+    copy: "Pattern confirmed."
+  },
+  {
+    id: "OBSERVATION 8084",
+    location: "London, United Kingdom",
+    copy: "School disruption events down 31%."
+  },
+  {
+    id: "OBSERVATION 9122",
+    location: "Melbourne, Australia",
+    copy: "Workplace decision latency reduced."
+  },
+  {
+    id: "OBSERVATION 1047",
+    location: "Region classified",
+    copy: "No escalation events recorded."
+  },
+  {
+    id: "OBSERVATION 2296",
+    location: "Location withheld",
+    copy: "Calm-state drift 85% confirmed."
+  }
+];
+
 const assessment = document.querySelector("[data-assessment]");
 const source = document.querySelector("[data-source]");
 const beginButton = document.querySelector("[data-begin-assessment]");
@@ -49,12 +92,18 @@ const clockEl = document.querySelector("[data-clock]");
 const varianceEl = document.querySelector("[data-variance]");
 const densityEl = document.querySelector("[data-density]");
 const noiseLine = document.querySelector("[data-noise-line]");
+const observationCard = document.querySelector("[data-observation-card]");
+const observationIndex = document.querySelector("[data-observation-index]");
+const observationId = document.querySelector("[data-observation-id]");
+const observationLocation = document.querySelector("[data-observation-location]");
+const observationCopy = document.querySelector("[data-observation-copy]");
 const canvas = document.querySelector("[data-signal-canvas]");
-const context = canvas.getContext("2d");
+const context = canvas?.getContext("2d");
 
 let currentQuestion = 0;
 let score = 0;
 let signalPoints = [];
+let currentObservation = 0;
 
 const scrollToElement = (selector) => {
   const target = document.querySelector(selector);
@@ -89,41 +138,47 @@ const showResult = () => {
   resultPanel.hidden = false;
 };
 
-beginButton.addEventListener("click", () => {
-  assessment.hidden = false;
-  currentQuestion = 0;
-  score = 0;
-  answersEl.hidden = false;
-  resultPanel.hidden = true;
-  updateQuestion();
-  requestAnimationFrame(() => {
-    assessment.querySelector(".reveal").classList.add("is-visible");
-    scrollToElement("#assessment");
+if (beginButton) {
+  beginButton.addEventListener("click", () => {
+    assessment.hidden = false;
+    currentQuestion = 0;
+    score = 0;
+    answersEl.hidden = false;
+    resultPanel.hidden = true;
+    updateQuestion();
+    requestAnimationFrame(() => {
+      assessment.querySelector(".reveal").classList.add("is-visible");
+      scrollToElement("#assessment");
+    });
   });
-});
+}
 
-answersEl.addEventListener("click", (event) => {
-  const button = event.target.closest("button[data-score]");
-  if (!button) return;
+if (answersEl) {
+  answersEl.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-score]");
+    if (!button) return;
 
-  score += Number(button.dataset.score);
-  currentQuestion += 1;
+    score += Number(button.dataset.score);
+    currentQuestion += 1;
 
-  if (currentQuestion >= questions.length) {
-    showResult();
-    return;
-  }
+    if (currentQuestion >= questions.length) {
+      showResult();
+      return;
+    }
 
-  updateQuestion();
-});
-
-viewSourceButton.addEventListener("click", () => {
-  source.hidden = false;
-  requestAnimationFrame(() => {
-    source.querySelector(".reveal").classList.add("is-visible");
-    scrollToElement("#source");
+    updateQuestion();
   });
-});
+}
+
+if (viewSourceButton) {
+  viewSourceButton.addEventListener("click", () => {
+    source.hidden = false;
+    requestAnimationFrame(() => {
+      source.querySelector(".reveal").classList.add("is-visible");
+      scrollToElement("#source");
+    });
+  });
+}
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -141,16 +196,47 @@ document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(it
 
 const updateReadouts = () => {
   const now = new Date();
-  clockEl.textContent = now.toLocaleTimeString("en-AU", { hour12: false });
-  varianceEl.textContent = (12 + Math.random() * 4).toFixed(2);
-  densityEl.textContent = (71 + Math.random() * 8).toFixed(2);
+  if (clockEl) {
+    clockEl.textContent = now.toLocaleTimeString("en-AU", { hour12: false });
+  }
+  if (varianceEl) {
+    varianceEl.textContent = (12 + Math.random() * 4).toFixed(2);
+  }
+  if (densityEl) {
+    densityEl.textContent = (71 + Math.random() * 8).toFixed(2);
+  }
 
   const channel = String(Math.floor(1000 + Math.random() * 8999));
   const drift = String(Math.floor(10 + Math.random() * 89));
-  noiseLine.textContent = `WN-${channel} / calm-state drift ${drift}% confirmed`;
+  if (noiseLine) {
+    noiseLine.textContent = `WN-${channel} / calm-state drift ${drift}% confirmed`;
+  }
+};
+
+const renderObservation = () => {
+  if (!observationCard) return;
+
+  const observation = observations[currentObservation];
+  observationIndex.textContent = `${String(currentObservation + 1).padStart(2, "0")}/${String(observations.length).padStart(2, "0")}`;
+  observationId.textContent = observation.id;
+  observationLocation.textContent = observation.location;
+  observationCopy.textContent = observation.copy;
+};
+
+const rotateObservation = () => {
+  if (!observationCard) return;
+
+  observationCard.classList.add("is-changing");
+  window.setTimeout(() => {
+    currentObservation = (currentObservation + 1) % observations.length;
+    renderObservation();
+    observationCard.classList.remove("is-changing");
+  }, 340);
 };
 
 const resizeCanvas = () => {
+  if (!canvas || !context) return;
+
   const ratio = window.devicePixelRatio || 1;
   canvas.width = Math.floor(window.innerWidth * ratio);
   canvas.height = Math.floor(window.innerHeight * ratio);
@@ -168,6 +254,8 @@ const resizeCanvas = () => {
 };
 
 const drawSignals = () => {
+  if (!canvas || !context) return;
+
   context.clearRect(0, 0, window.innerWidth, window.innerHeight);
   context.font = "10px IBM Plex Mono, monospace";
   context.textBaseline = "top";
@@ -195,6 +283,8 @@ const drawSignals = () => {
 resizeCanvas();
 drawSignals();
 updateReadouts();
+renderObservation();
 
 window.addEventListener("resize", resizeCanvas);
 window.setInterval(updateReadouts, 1800);
+window.setInterval(rotateObservation, 3600);

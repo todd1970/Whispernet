@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WHISPERNET monitors behavioural pattern changes across public, private and domestic systems.">
-  <meta name="theme-color" content="#050807">
-  <title>WHISPERNET</title>
+  <meta name="description" content="WhisperNet is monitoring behavioural pattern changes across public, private and domestic systems.">
+  <meta name="theme-color" content="#020806">
+  <title>WhisperNet</title>
+  <link rel="icon" type="image/png" href="./assets/favicon/whispernet-favicon.png">
+  <link rel="apple-touch-icon" href="./assets/favicon/whispernet-favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +37,7 @@
             The cause remains unknown.
           </p>
           <button class="primary-action" type="button" data-scroll-target="#signals">VIEW CURRENT SIGNALS</button>
-          <p class="density-note">Pattern density increasing across monitored regions.</p>
+          <p class="density-note">Pattern confidence: 87.4% and rising.</p>
         </div>
         <aside class="monitor-panel reveal" aria-label="Current monitoring status">
           <div class="panel-header">
@@ -54,6 +56,17 @@
             <span></span><span></span><span></span><span></span><span></span><span></span>
             <span></span><span></span><span></span><span></span><span></span><span></span>
             <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="observation-feed" aria-live="polite">
+            <div class="panel-header">
+              <span>LIVE OBSERVATION FEED</span>
+              <span data-observation-index>01/08</span>
+            </div>
+            <div class="observation-card" data-observation-card>
+              <span data-observation-id>OBSERVATION 4831</span>
+              <strong data-observation-location>Sydney, Australia</strong>
+              <p data-observation-copy>Family conflict frequency reduced 17%.</p>
+            </div>
           </div>
           <p data-noise-line>WN-0184 / calm-state drift detected</p>
         </aside>
@@ -90,6 +103,30 @@
           <span>SIGNAL 42</span>
           <p>A family reports no conflict for thirteen days.<br>No one remembers what they last argued about.</p>
         </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 48</span>
+          <p>A child was asked what she wanted to be when she grew up.<br>She replied:<br>"Whatever helps."</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 53</span>
+          <p>A patient reported complete relief from anxiety.<br>Follow-up interviews found no measurable excitement.</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 61</span>
+          <p>A family dinner lasted forty-two minutes.<br>No one interrupted.<br>No one laughed.</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 66</span>
+          <p>A workplace conflict was resolved before anyone spoke.<br>The system marked this as successful.</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 72</span>
+          <p>A teenager described the week as peaceful.<br>Message history shows no contact with friends.</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 88</span>
+          <p>A neighbourhood recorded zero complaints.<br>Audio logs detected no music, shouting or celebration.</p>
+        </article>
       </div>
     </section>
 
@@ -120,6 +157,15 @@
           <h3 data-result-title>LOW ALIGNMENT COMPATIBILITY</h3>
           <p data-result-copy>You retain elevated emotional variance.</p>
           <p class="recommendation" data-result-recommendation>Recommendation: Continued observation.</p>
+          <div class="classification-block" data-classification>
+            <h3>CLASSIFICATION COMPLETE</h3>
+            <p>Your responses have been recorded.</p>
+            <dl>
+              <div><dt>REFERENCE ID:</dt><dd>WN-74291</dd></div>
+              <div><dt>STATUS:</dt><dd>UNDER OBSERVATION</dd></div>
+              <div><dt>ACCESS CODE:</dt><dd>4831</dd></div>
+            </dl>
+          </div>
           <button class="primary-action" type="button" data-view-source>VIEW ASSESSMENT SOURCE</button>
         </div>
       </div>
@@ -150,6 +196,7 @@
         <div class="button-row">
           <a class="primary-action" href="https://the-hum-trilogy.netlify.app/">VISIT THE HUM TRILOGY</a>
           <a class="secondary-action" href="mailto:hello@example.com?subject=Request%20access%20to%20The%20Hum%20Trilogy">REQUEST ACCESS</a>
+          <a class="secondary-action" href="archive.html">ACCESS WHISPERNET ARCHIVE</a>
         </div>
       </div>
     </section>
