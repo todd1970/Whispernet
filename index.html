@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WHISPERNET monitors behavioural pattern changes across public, private and domestic systems.">
+  <meta name="theme-color" content="#050807">
+  <title>WHISPERNET</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="system-noise" aria-hidden="true"></div>
+  <div class="scan-field" aria-hidden="true"></div>
+  <canvas class="signal-canvas" data-signal-canvas aria-hidden="true"></canvas>
+
+  <header class="top-bar">
+    <a class="brand" href="#top" aria-label="WHISPERNET home">WHISPERNET</a>
+    <p>OBSERVE. ANALYSE. PROTECT.</p>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="label">SIGNAL REPORT 001</p>
+          <h1 id="hero-title">PEOPLE ARE CALMER.</h1>
+          <p class="report-copy">
+            Schools report fewer behavioural incidents.
+            Workplaces report improved productivity.
+            Hospitals report reduced emotional escalation.
+            The trend is accelerating.
+            The cause remains unknown.
+          </p>
+          <button class="primary-action" type="button" data-scroll-target="#signals">VIEW CURRENT SIGNALS</button>
+          <p class="density-note">Pattern density increasing across monitored regions.</p>
+        </div>
+        <aside class="monitor-panel reveal" aria-label="Current monitoring status">
+          <div class="panel-header">
+            <span>REGIONAL FEED</span>
+            <span data-clock>00:00:00</span>
+          </div>
+          <div class="signal-readout">
+            <span>VARIANCE</span>
+            <strong data-variance>14.08</strong>
+          </div>
+          <div class="signal-readout">
+            <span>DENSITY</span>
+            <strong data-density>73.42</strong>
+          </div>
+          <div class="pulse-grid" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p data-noise-line>WN-0184 / calm-state drift detected</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="signals section-band" id="signals" aria-labelledby="signals-title">
+      <div class="section-heading reveal">
+        <p class="label">LIVE ARCHIVE</p>
+        <h2 id="signals-title">LATEST SIGNALS</h2>
+      </div>
+      <div class="signal-grid">
+        <article class="signal-card reveal">
+          <span>SIGNAL 12</span>
+          <p>A teacher reports that a student suffered a panic attack.<br>No students left their seats.</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 19</span>
+          <p>A workplace reports record productivity.<br>No employees attended the celebration.</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 24</span>
+          <p>A patient reports feeling better.<br>When asked how they feel, they answer:<br>"Fine."</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 31</span>
+          <p>Reports of emotional variance continue to decline.<br>Public approval remains high.</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 37</span>
+          <p>People appear happier.<br>Nobody is certain why.</p>
+        </article>
+        <article class="signal-card reveal">
+          <span>SIGNAL 42</span>
+          <p>A family reports no conflict for thirteen days.<br>No one remembers what they last argued about.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="assessment-teaser section-band" aria-labelledby="assessment-teaser-title">
+      <div class="assessment-copy reveal">
+        <p class="label">SELF-REPORT PROTOCOL</p>
+        <h2 id="assessment-teaser-title">STABILITY STARTS WITH YOU.</h2>
+        <p>Answer a few questions.<br>Receive your Stability Assessment.<br>Understand your alignment.</p>
+        <button class="primary-action" type="button" data-begin-assessment>BEGIN ASSESSMENT</button>
+      </div>
+    </section>
+
+    <section class="quiz-section section-band" id="assessment" data-assessment hidden aria-labelledby="assessment-title">
+      <div class="quiz-shell reveal">
+        <div class="quiz-status">
+          <p class="label">STABILITY ASSESSMENT</p>
+          <span data-progress>QUESTION 01 / 10</span>
+        </div>
+        <div class="progress-track" aria-hidden="true"><span data-progress-bar></span></div>
+        <h2 id="assessment-title" data-question>Would you permanently remove anxiety if it also reduced emotional intensity?</h2>
+        <div class="answer-grid" data-answers>
+          <button type="button" data-score="10">Agree</button>
+          <button type="button" data-score="5">Unsure</button>
+          <button type="button" data-score="0">Disagree</button>
+        </div>
+        <div class="result-panel" data-result hidden>
+          <p class="result-score">YOUR STABILITY SCORE: <strong data-score-output>0%</strong></p>
+          <h3 data-result-title>LOW ALIGNMENT COMPATIBILITY</h3>
+          <p data-result-copy>You retain elevated emotional variance.</p>
+          <p class="recommendation" data-result-recommendation>Recommendation: Continued observation.</p>
+          <button class="primary-action" type="button" data-view-source>VIEW ASSESSMENT SOURCE</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal-section section-band" id="source" data-source hidden aria-labelledby="source-title">
+      <div class="source-shell reveal">
+        <p class="label">ASSESSMENT SOURCE IDENTIFIED</p>
+        <h2 id="source-title">THE HUM TRILOGY</h2>
+        <p class="source-intro">A completed three-film political and psychological science-fiction thriller.</p>
+
+        <div class="film-list">
+          <article>
+            <h3>DAY ZERO</h3>
+            <p>When society begins to collapse under the weight of debt, infrastructure failure and resource scarcity, a president chooses controlled fragmentation over chaos.</p>
+          </article>
+          <article>
+            <h3>ALIGNMENT</h3>
+            <p>As systems stabilise, the human mind becomes the next crisis. A breakthrough treatment promises relief, but quietly changes what people are still able to feel.</p>
+          </article>
+          <article>
+            <h3>ALL I KNOW</h3>
+            <p>The treatment evolves into The HUM: a synchronised human state where anxiety, conflict and individuality are removed.</p>
+          </article>
+        </div>
+
+        <p class="final-line">Humanity will always choose relief over freedom - until it is too late.</p>
+        <div class="button-row">
+          <a class="primary-action" href="https://the-hum-trilogy.netlify.app/">VISIT THE HUM TRILOGY</a>
+          <a class="secondary-action" href="mailto:hello@example.com?subject=Request%20access%20to%20The%20Hum%20Trilogy">REQUEST ACCESS</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p>WhisperNet is monitoring behavioural pattern changes across public, private and domestic systems.</p>
+    </div>
+    <div class="footer-status">
+      <h2>SYSTEM STATUS</h2>
+      <dl>
+        <div><dt>Monitoring:</dt><dd>Active</dd></div>
+        <div><dt>Signals detected:</dt><dd>37,842</dd></div>
+        <div><dt>Emotional variance:</dt><dd>Declining</dd></div>
+        <div><dt>System integrity:</dt><dd>Secure</dd></div>
+      </dl>
+    </div>
+    <p class="copyright">&copy; 2026 WHISPERNET. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
