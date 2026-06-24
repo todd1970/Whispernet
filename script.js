@@ -35,43 +35,63 @@ const results = [
 const observations = [
   {
     id: "OBSERVATION 4831",
-    location: "Sydney, Australia",
+    location: "Columbus, Ohio",
     copy: "Family conflict frequency reduced 17%."
   },
   {
     id: "OBSERVATION 5127",
-    location: "Toronto, Canada",
+    location: "Pittsburgh, Pennsylvania",
     copy: "Reported emotional variance declining."
   },
   {
     id: "OBSERVATION 6201",
-    location: "Chicago, USA",
+    location: "Chicago, Illinois",
     copy: "Public compliance increasing."
   },
   {
     id: "OBSERVATION 7310",
-    location: "Location withheld",
+    location: "Fresno, California",
     copy: "Pattern confirmed."
   },
   {
     id: "OBSERVATION 8084",
-    location: "London, United Kingdom",
+    location: "Des Moines, Iowa",
     copy: "School disruption events down 31%."
   },
   {
     id: "OBSERVATION 9122",
-    location: "Melbourne, Australia",
+    location: "Detroit, Michigan",
     copy: "Workplace decision latency reduced."
   },
   {
     id: "OBSERVATION 1047",
-    location: "Region classified",
+    location: "Tulsa, Oklahoma",
     copy: "No escalation events recorded."
   },
   {
     id: "OBSERVATION 2296",
-    location: "Location withheld",
+    location: "Omaha, Nebraska",
     copy: "Calm-state drift 85% confirmed."
+  },
+  {
+    id: "OBSERVATION 3374",
+    location: "Cleveland, Ohio",
+    copy: "Domestic dispute calls reduced across monitored zones."
+  },
+  {
+    id: "OBSERVATION 4490",
+    location: "St. Louis, Missouri",
+    copy: "Neighbourhood complaint volume approaching zero."
+  },
+  {
+    id: "OBSERVATION 5638",
+    location: "Reno, Nevada",
+    copy: "Public gathering noise variance below threshold."
+  },
+  {
+    id: "OBSERVATION 6902",
+    location: "Dayton, Ohio",
+    copy: "School attendance stable. Emotional response variance reduced."
   }
 ];
 
