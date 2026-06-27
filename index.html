@@ -52,10 +52,67 @@
             <span>DENSITY</span>
             <strong data-density>73.42</strong>
           </div>
-          <div class="pulse-grid" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
+          <div class="regional-map" aria-label="Stylised U.S. behavioural monitoring map">
+            <svg viewBox="0 0 420 250" role="img" aria-labelledby="regional-map-title regional-map-desc">
+              <title id="regional-map-title">U.S. behavioural monitoring regions</title>
+              <desc id="regional-map-desc">Abstract contiguous United States map showing monitored regions, signal paths, variance clusters and active nodes.</desc>
+              <defs>
+                <filter id="node-glow" x="-80%" y="-80%" width="260%" height="260%">
+                  <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+                  <feMerge>
+                    <feMergeNode in="blur"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <path class="map-outline" d="M66 123L80 88L118 72L158 78L188 64L228 72L262 64L302 76L334 92L354 120L340 146L356 168L326 180L292 174L264 188L220 184L182 194L146 176L112 174L82 152Z"></path>
+              <path class="map-region" d="M138 78L132 116L116 146L112 174"></path>
+              <path class="map-region" d="M206 70L202 112L208 150L220 184"></path>
+              <path class="map-region" d="M282 70L274 110L286 146L292 174"></path>
+              <path class="map-region" d="M84 152L142 140L208 150L286 146L350 164"></path>
+
+              <path class="signal-path" d="M122 132C154 104 178 98 210 118"></path>
+              <path class="signal-path" d="M210 118C244 118 276 132 304 154"></path>
+              <path class="signal-path" d="M166 166C204 148 242 152 282 170"></path>
+              <path class="signal-path quiet" d="M104 104C156 92 218 88 316 106"></path>
+
+              <g class="map-node active" style="--delay: 0s" transform="translate(122 132)">
+                <circle r="10"></circle>
+                <circle r="3"></circle>
+              </g>
+              <g class="map-node" style="--delay: .7s" transform="translate(166 166)">
+                <circle r="8"></circle>
+                <circle r="3"></circle>
+              </g>
+              <g class="map-node active" style="--delay: 1.4s" transform="translate(210 118)">
+                <circle r="11"></circle>
+                <circle r="3"></circle>
+              </g>
+              <g class="map-node" style="--delay: 2.1s" transform="translate(248 92)">
+                <circle r="7"></circle>
+                <circle r="3"></circle>
+              </g>
+              <g class="map-node active" style="--delay: 2.8s" transform="translate(304 154)">
+                <circle r="10"></circle>
+                <circle r="3"></circle>
+              </g>
+              <g class="map-node" style="--delay: 1.8s" transform="translate(282 170)">
+                <circle r="8"></circle>
+                <circle r="3"></circle>
+              </g>
+              <g class="map-node" style="--delay: .3s" transform="translate(104 104)">
+                <circle r="7"></circle>
+                <circle r="3"></circle>
+              </g>
+
+              <g class="map-labels">
+                <text x="40" y="32">Monitored Regions</text>
+                <text x="270" y="38">Signal Density</text>
+                <text x="46" y="220">Variance Clusters</text>
+                <text x="286" y="220">Active Nodes</text>
+              </g>
+            </svg>
           </div>
           <div class="observation-feed" aria-live="polite">
             <div class="panel-header">
